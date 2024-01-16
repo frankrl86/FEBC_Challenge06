@@ -1,0 +1,111 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Quiz Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body
+    class="bg-white-700 text-black flex flex-col items-center justify-center h-screen"
+  >
+    <div class="absolute top-0 left-0 m-6">
+      <a
+        href="highscores.html"
+        class="text-purple-500 hover:text-purple-300 text-sm"
+        >View high scores</a
+      >
+    </div>
+
+    <div class="timer">Time: 0</div>
+
+    <div id="main-container">
+      <div id="start-screen" class="text-center">
+        <h1 class="text-4xl font-bold mb-4">Coding Quiz Challenge</h1>
+        <p class="text-lg mb-6">
+          Try to answer the following code-related questions within the time
+          limit.<br />
+          Keep in mind that incorrect answers will penalize your score/time<br />
+          by ten seconds!
+        </p>
+        <button
+          id="start"
+          class="bg-purple-900 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded"
+        >
+          Start Quiz
+        </button>
+      </div>
+
+      <div id="questions" class="hide">
+        <h2 id="question-title" class="text-center text-3xl font-bold">
+          The condition in an if / else statement is enclosed with ____________.
+        </h2>
+        <br />
+        <div class="grid justify-items-start">
+          <button
+            id="btn01"
+            class="bg-purple-900 hover:bg-purple-500 text-white text-left font-bold ml-2 py-4 px-4 min-w-64 rounded"
+          >
+            1. quotes
+          </button>
+          <br />
+          <button
+            id="btn02"
+            class="bg-purple-900 hover:bg-purple-500 text-white text-left font-bold ml-2 py-4 px-4 min-w-64 rounded"
+          >
+            2. curly brackets
+          </button>
+          <br />
+          <button
+            id="btn03"
+            class="bg-purple-900 hover:bg-purple-500 text-white text-left font-bold ml-2 py-4 px-4 min-w-64 rounded"
+          >
+            3. parenthesis
+          </button>
+          <br />
+          <button
+            id="btn04"
+            class="bg-purple-900 hover:bg-purple-500 text-white text-left font-bold ml-2 py-4 px-4 min-w-64 rounded"
+          >
+            4. square brackets
+          </button>
+        </div>
+      </div>
+
+      <div id="end-screen" class="hide">
+        <h2 class="text-3xl font-bold mb-4">All done!</h2>
+        <p class="text-lg mb-6">
+          Your final score is <span id="final-score"></span>.
+        </p>
+        <p>
+          Enter initials:
+          <input class="border-2" type="text" id="initials" max="3" />
+          <a href="highscores.html"
+            ><button
+              id="submit"
+              class="bg-purple-900 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded"
+            >
+              Submit
+            </button></a
+          >
+        </p>
+      </div>
+
+      <div id="quiz-footer">
+        <br />
+        <br />
+        <hr id="quiz-footer-line" class="hide" />
+        <br />
+        <h2 id="quiz-footer-result" class="text-left text-3xl font-bold"></h2>
+      </div>
+    </div>
+
+    <script src="./js/logic.js"></script>
+    <script src="./js/scores.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+.timer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 12px;
+  font-size: 18px;
+  background: white;
+}
+
+.hide {
+  display: none;
+}
