@@ -29,8 +29,19 @@ var question4 = {
 };
 
 var questions = [question1, question2, question3, question4];
+
+var player = {
+  initials: "",
+  points: 0,
+};
+var playersCount = 0;
+
 // Index Container >> Linked to Array Questions
 var indexContainer = 0;
+
+// Initial time assigned
+var timerInterval;
+var timeCount = 100;
 
 // Get containers
 var containerStartScreen = document.querySelector("#start-screen");
@@ -51,12 +62,16 @@ var ansBtn04 = document.querySelector("#btn04");
 var titleQuestion = document.querySelector("#question-title");
 var quizFooter = document.querySelector("#quiz-footer-result");
 var quizFooterLine = document.querySelector("#quiz-footer-line");
+var finalScore = document.querySelector("#final-score");
+var clockTimer = document.querySelector("#clock");
+var initialsPlayer = document.querySelector("#initials");
 
 // Listen for a click events
 startBtn.addEventListener("click", function () {
   setQuestions();
   containerStartScreen.setAttribute("class", "hide");
   containerQuestions.setAttribute("class", "");
+  setTime();
 });
 
 ansBtn01.addEventListener("click", function () {
@@ -88,7 +103,13 @@ ansBtn04.addEventListener("click", function () {
 });
 
 submitBtn.addEventListener("click", function () {
-  console.log("Store results");
+  playersCount = localStorage.getItem("playersCount");
+  playersCount++;
+  player.initials = initialsPlayer.textContent;
+  player.points = timeCount;
+  localStorage.setItem("player" + playersCount, JSON.stringify(player));
+  console.log("PlayerCount:" + playersCount);
+  console.log("Player to store:" + player);
 });
 
 function setQuestions() {
@@ -100,12 +121,12 @@ function setQuestions() {
     ansBtn02.textContent = questions[indexContainer].option2[0];
     ansBtn03.textContent = questions[indexContainer].option3[0];
     ansBtn04.textContent = questions[indexContainer].option4[0];
-
     indexContainer += 1;
   } else {
     console.log("Go to End Screen");
     containerQuestions.setAttribute("class", "hide");
     containerEndScreen.setAttribute("class", "");
+    clearInterval(timerInterval);
   }
 }
 
@@ -115,6 +136,11 @@ function setQuizResultFooter(choice = false) {
     quizFooter.textContent = "Correct!";
   } else {
     quizFooter.textContent = "Wrong!";
+    timeCount -= 10;
+  }
+  if (indexContainer === questions.length) {
+    clockTimer.textContent = "Time: " + timeCount;
+    finalScore.textContent = timeCount;
   }
 }
 
@@ -124,4 +150,17 @@ function playSoundChoice(choice = false) {
   } else {
     incorrectAudio.play();
   }
+}
+
+function setTime() {
+  // Sets interval in variable
+  timerInterval = setInterval(function () {
+    timeCount--;
+    clockTimer.textContent = "Time: " + timeCount;
+
+    if (timeCount === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+    }
+  }, 1000);
 }
