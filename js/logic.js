@@ -105,11 +105,19 @@ ansBtn04.addEventListener("click", function () {
 submitBtn.addEventListener("click", function () {
   playersCount = localStorage.getItem("playersCount");
   playersCount++;
-  player.initials = initialsPlayer.textContent;
+  let input = initialsPlayer.value;
+  let inputSize = input.trim().length;
+  console.log(inputSize);
+  if (!(inputSize === 3)) {
+    alert("Your input should have a lenght of 3 charaters");
+    return;
+  }
+  player.initials = input;
   player.points = timeCount;
   localStorage.setItem("player" + playersCount, JSON.stringify(player));
+  localStorage.setItem("playersCount", playersCount);
   console.log("PlayerCount:" + playersCount);
-  console.log("Player to store:" + player);
+  console.log("Player to store:" + JSON.stringify(player));
 });
 
 function setQuestions() {
