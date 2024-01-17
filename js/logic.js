@@ -1,34 +1,45 @@
 // Initial Data Questions
 var question1 = {
-  title: "Question 1",
-  option1: ["1. Answer ...", false],
-  option2: ["2. Answer ...", false],
-  option3: ["3. Answer ...", true],
-  option4: ["4. Answer ...", false],
+  title: "Q1: Commonly used data types DO Not Include:",
+  option1: ["1. strings", false],
+  option2: ["2. booleans", false],
+  option3: ["3. alerts", true],
+  option4: ["4. numbers", false],
 };
 var question2 = {
-  title: "Question 2",
-  option1: ["1. Answer ...", false],
-  option2: ["2. Answer ...", true],
-  option3: ["3. Answer ...", false],
-  option4: ["4. Answer ...", false],
+  title:
+    "Q2: The condition in an if / else statement is enclosed with ________.",
+  option1: ["1. quotes", false],
+  option2: ["2. curly brackets", false],
+  option3: ["3. parenthesis", true],
+  option4: ["4. square brackets", false],
 };
 var question3 = {
-  title: "Question 3",
-  option1: ["1. Answer ...", false],
-  option2: ["2. Answer ...", false],
-  option3: ["3. Answer ...", false],
-  option4: ["4. Answer ...", true],
+  title: "Q3: Arrays in JavaScript can be used to store ________.",
+  option1: ["1. numbers and strings", false],
+  option2: ["2. other arrays", false],
+  option3: ["3. booleans", false],
+  option4: ["4. all of the above", true],
 };
 var question4 = {
-  title: "Question 4",
-  option1: ["1. Answer ...", true],
-  option2: ["2. Answer ...", false],
-  option3: ["3. Answer ...", false],
-  option4: ["4. Answer ...", false],
+  title:
+    "Q4: String values must be enclosed within ________ when being assigned to variables.",
+  option1: ["1. commas", false],
+  option2: ["2. curly brackets", false],
+  option3: ["3. quotes", true],
+  option4: ["4. parenthesis", false],
 };
 
-var questions = [question1, question2, question3, question4];
+var question5 = {
+  title:
+    "Q5: A very useful tool used during development and debugging for printing content to the debugger is:",
+  option1: ["1. JavaScript", false],
+  option2: ["2. terminal/bash", false],
+  option3: ["3. for loops", false],
+  option4: ["4. console.log", true],
+};
+
+var questions = [question1, question2, question3, question4, question5];
 
 var player = {
   initials: "",
@@ -75,29 +86,33 @@ startBtn.addEventListener("click", function () {
 });
 
 ansBtn01.addEventListener("click", function () {
-  setQuestions();
   let choice = questions[indexContainer - 1].option1[1];
+  console.log("Choice >>" + choice + "  Index >>" + indexContainer);
+  setQuestions();
   playSoundChoice(choice);
   setQuizResultFooter(choice);
 });
 
 ansBtn02.addEventListener("click", function () {
-  setQuestions();
   let choice = questions[indexContainer - 1].option2[1];
+  console.log("Choice >>" + choice + "  Index >>" + indexContainer);
+  setQuestions();
   playSoundChoice(choice);
   setQuizResultFooter(choice);
 });
 
 ansBtn03.addEventListener("click", function () {
-  setQuestions();
   let choice = questions[indexContainer - 1].option3[1];
+  console.log("Choice >>" + choice + "  Index >>" + indexContainer);
+  setQuestions();
   playSoundChoice(choice);
   setQuizResultFooter(choice);
 });
 
 ansBtn04.addEventListener("click", function () {
-  setQuestions();
   let choice = questions[indexContainer - 1].option4[1];
+  console.log("Choice >>" + choice + "  Index >>" + indexContainer);
+  setQuestions();
   playSoundChoice(choice);
   setQuizResultFooter(choice);
 });
@@ -129,7 +144,7 @@ function setQuestions() {
     ansBtn02.textContent = questions[indexContainer].option2[0];
     ansBtn03.textContent = questions[indexContainer].option3[0];
     ansBtn04.textContent = questions[indexContainer].option4[0];
-    indexContainer += 1;
+    indexContainer++;
   } else {
     console.log("Go to End Screen");
     containerQuestions.setAttribute("class", "hide");
