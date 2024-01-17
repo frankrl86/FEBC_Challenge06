@@ -122,7 +122,7 @@ submitBtn.addEventListener("click", function () {
   playersCount++;
   let input = initialsPlayer.value;
   let inputSize = input.trim().length;
-  console.log(inputSize);
+  console.log("Input Size >>" + inputSize);
   if (!(inputSize === 3)) {
     alert("Your input should have a lenght of 3 charaters");
     return;
