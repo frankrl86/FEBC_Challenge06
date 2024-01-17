@@ -133,6 +133,7 @@ submitBtn.addEventListener("click", function () {
   localStorage.setItem("playersCount", playersCount);
   console.log("PlayerCount:" + playersCount);
   console.log("Player to store:" + JSON.stringify(player));
+  window.location.href = "highscores.html";
 });
 
 function setQuestions() {
